@@ -4,12 +4,4 @@ machine as well as kali mach
 Use arpspoof command 2 times in 2 different terminals in kali machine to modify
 ARP table in windows and router
 
-The IP address of the client machine used over LAN for this demo is: 192.168.1.44
-And the Attacker IP is: 192.168.1.1
- Open terminal and ping the target machine to verify the IP address you are using and to add it
-to your arp table
- Type arp in the terminal command line to see your arp table
- For security purposes, IP forwarding is by default disabled in modern Linux systems. For
-temporarily enabling it, type : echo 1 > /proc/sys/net/ipv4/ip_forward
- For ARP poisoning, the command syntax is: arpspoof -i interface -t target -r host
- Example: arpspoof -i eth0 -t 192.168.1.44 -r 192.168.1.1
+
