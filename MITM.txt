@@ -1,0 +1,24 @@
+The IP address of the client machine used over LAN for this demo is: 192.168.1.44
+And the Attacker IP is: 192.168.1.1
+ Open terminal and ping the target machine to verify the IP address you are using and to add it
+to your arp table
+ Type arp in the terminal command line to see your arp table
+ For security purposes, IP forwarding is by default disabled in modern Linux systems. For
+temporarily enabling it, type : echo 1 > /proc/sys/net/ipv4/ip_forward
+ For ARP poisoning, the command syntax is: arpspoof -i interface -t target -r host
+ Example: arpspoof -i eth0 -t 192.168.1.44 -r 192.168.1.1
+
+A basic setup is complete and victim network traffic will now pass through the attacker machine. To
+listen to these packets, we will use Wireshark
+ Open up a new terminal and type wireshark. Go to the interface which is capturing all the data
+flow (here eth0) and start the capture.
+ Filter out packets according to what you are looking for. For the purpose of this demo, the
+user is logging in to a vulnerable website DVWA which uses HTTP instead of the secure
+version HTTPS. Filter protocol as http and search for required data.
+
+Right click on the packet and follow TCP stream to open up the data contained within. We can
+clearly obtain the login credentials of the user, that is the username and password
+
+MITM is one of the classic hacks and on a LAN connection, ARP spoofing is much preferred. Today
+there have been various measures to prevent such an attack by use of HTTPS, use of VPN and,
+strong WEP/WAP encryption on access points
